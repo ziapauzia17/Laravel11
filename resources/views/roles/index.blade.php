@@ -31,7 +31,7 @@
         </tr>
         @foreach ($roles as $key => $role)
             <tr>
-                <td>{{ ++$i }}</td>
+                <td text align="center">{{ ++$i }}</td>
                 <td>{{ $role->name }}</td>
                 <td>
                     <a class="btn btn-info btn-sm" href="{{ route('roles.show', $role->id) }}"><i
