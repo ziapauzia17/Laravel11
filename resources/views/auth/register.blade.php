@@ -96,7 +96,7 @@
 
         <!-- Sign In Link -->
         <div class="text-center">
-            <a class="fs-9 fw-bold" href="l">Sign in to an existing
+            <a class="fs-9 fw-bold" href="{{ route('login') }}">Sign in to an existing
                 account</a>
         </div>
     </div>

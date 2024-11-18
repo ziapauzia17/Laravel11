@@ -18,9 +18,17 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('image')->nullable();
+            $table->string('nip')->nullable()->unique();
+            $table->foreignId('pangkat_id')->nullable()->constrained('pangkats')->onDelete('set null');
+            $table->unsignedBigInteger('atasan_id')->nullable(); // Menambahkan kolom atasan_id
+            $table->foreign('atasan_id')->references('id')->on('atasans')->onDelete('set null'); // Menambahkan foreign key constraint
+            $table->string('unit_kerja')->nullable();
+            $table->date('tmt_jabatan')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+
+
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
@@ -46,5 +54,5 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
-    }
+}
 };
