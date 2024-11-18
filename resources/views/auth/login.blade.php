@@ -1,47 +1,86 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.guest')
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+@section('title', 'Login')
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+@section('content')
+    <div class="auth-form-box">
+        <div class="text-center mb-7">
+            <a class="d-flex flex-center text-decoration-none mb-4" href="#!">
+                <div class="d-flex align-items-center fw-bolder fs-3 d-inline-block">
+                    <img src="/assets/backend/img/icons/logo-rsud-removebg.png" alt="phoenix" width="58" />
+                </div>
+            </a>
+            <h3 class="text-body-highlight">Sign In</h3>
+            <p class="text-body-tertiary">Get access to your account</p>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <!-- Social Login Buttons -->
+        <button class="btn btn-phoenix-secondary w-100 mb-3">
+            <span class="fab fa-google text-danger me-2 fs-9"></span>Sign in with google
+        </button>
+        <button class="btn btn-phoenix-secondary w-100">
+            <span class="fab fa-facebook text-primary me-2 fs-9"></span>Sign in with facebook
+        </button>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <!-- Divider -->
+        <div class="position-relative">
+            <hr class="bg-body-secondary mt-5 mb-4" />
+            <div class="divider-content-center bg-body-emphasis">or use email</div>
         </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+        <!-- Login Form -->
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+            <!-- Email Address -->
+            <div class="mb-3 text-start">
+                <label class="form-label" for="email">Email address</label>
+                <div class="form-icon-container">
+                    <input class="form-control form-icon-input" id="email" type="email" name="email"
+                        :value="old('email')" required autofocus placeholder="name@example.com" />
+                    <span class="fas fa-user text-body fs-9 form-icon"></span>
+                </div>
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+            <!-- Password -->
+            <div class="mb-3 text-start">
+                <label class="form-label" for="password">Password</label>
+                <div class="form-icon-container" data-password="data-password">
+                    <input class="form-control form-icon-input pe-6" id="password" type="password" name="password" required
+                        placeholder="Password" data-password-input="data-password-input" />
+                    <span class="fas fa-key text-body fs-9 form-icon"></span>
+                    <button class="btn px-3 py-0 h-100 position-absolute top-0 end-0 fs-7 text-body-tertiary"
+                        data-password-toggle="data-password-toggle">
+                        <span class="uil uil-eye show"></span>
+                        <span class="uil uil-eye-slash hide"></span>
+                    </button>
+                </div>
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
+
+            <!-- Remember Me -->
+            <div class="row flex-between-center mb-7">
+                <div class="col-auto">
+                    <div class="form-check mb-0">
+                        <input class="form-check-input" id="remember_me" type="checkbox" name="remember" />
+                        <label class="form-check-label mb-0" for="remember_me">Remember me</label>
+                    </div>
+                </div>
+                @if (Route::has('password.request'))
+                    <div class="col-auto">
+                        <a class="fs-9 fw-semibold" href="{{ route('password.request') }}">Forgot Password?</a>
+                    </div>
+                @endif
+            </div>
+
+            <!-- Sign In Button -->
+            <button class="btn btn-primary w-100 mb-3" type="submit">Sign In</button>
+        </form>
+
+        <!-- Create Account Link -->
+        <div class="text-center">
+            <a class="fs-9 fw-bold" href="{{ route('register') }}">Create an account</a>
         </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection

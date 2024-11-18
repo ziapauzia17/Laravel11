@@ -9,8 +9,8 @@
             <a class="navbar-brand me-1 me-sm-3" href="index.html">
                 <div class="d-flex align-items-center">
                     <div class="d-flex align-items-center"><img src="assets/backend/img/icons/logo-rsud-removebg.png"
-                            alt="phoenix" width="27" />
-                        <h5 class="logo-text ms-2 d-none d-sm-block">RSUD KAWALI</h5>
+                            alt="phoenix" width="47" />
+                        <h5 class="logo-text ms-2 d-none d-sm-block">E-Kinerja</h5>
                     </div>
                 </div>
             </a>
