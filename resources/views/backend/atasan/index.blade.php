@@ -4,5 +4,6 @@
 
 @section('content')
     <h1>Atasan</h1>
+    <h2>halaman</h2>
 
 @endsection
