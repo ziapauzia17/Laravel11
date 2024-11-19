@@ -153,6 +153,7 @@
     <script src="/assets/backend/js/phoenix.js"></script>
     <script src="/assets/backend/vendors/echarts/echarts.min.js"></script>
     <script src="assets/js/ecommerce-dashboard.js"></script>
+    <script src="{{ asset('assets/backend/vendors/flatpickr/flatpickr.min.js') }}"></script>
     </script>
 
     @stack('js')
