@@ -3,7 +3,8 @@
 @section('title', 'Atasan')
 
 @section('content')
-    <h1>Atasan</h1>
-    <h2>halaman</h2>
+<h1>Atasan</h1>
+<h2>halaman</h2>
+<h3>Atasan</h3>
 
 @endsection
