@@ -12,7 +12,8 @@ class PangkatController extends Controller
      */
     public function index()
     {
-        return view('backend.pangkat.index');
+        $pangkats = Pangkat::all();
+        return view('backend.pangkat.index', compact('pangkats'));
     }
 
     /**
@@ -20,6 +21,7 @@ class PangkatController extends Controller
      */
     public function create()
     {
+        return view('backend.pangkat.create');
         //
     }
 
