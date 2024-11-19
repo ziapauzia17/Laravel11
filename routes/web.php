@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('atasan', AtasanController::class);
+    Route::resource('atasans', AtasanController::class );
 
     Route::resource('pangkat', PangkatController::class);
     
