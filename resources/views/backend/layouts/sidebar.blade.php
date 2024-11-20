@@ -33,22 +33,22 @@
                                 <li class="collapsed-nav-item-title d-none">Home</li>
                                 <li class="nav-item">
                                     @can('user-list')
-                                        <a class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}"
-                                            href="{{ route('users.index') }}">
-                                            <div class="d-flex align-items-center">
-                                                <span class="nav-link-text">Data Users</span>
-                                            </div>
-                                        </a>
+                                    <a class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}"
+                                        href="{{ route('users.index') }}">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Data Users</span>
+                                        </div>
+                                    </a>
                                     @endcan
                                 </li>
                                 <li class="nav-item">
                                     @can('role-list')
-                                        <a class="nav-link {{ request()->routeIs('roles.*') ? 'active' : '' }}"
-                                            href="{{ route('roles.index') }}">
-                                            <div class="d-flex align-items-center">
-                                                <span class="nav-link-text">Data Roles</span>
-                                            </div>
-                                        </a>
+                                    <a class="nav-link {{ request()->routeIs('roles.*') ? 'active' : '' }}"
+                                        href="{{ route('roles.index') }}">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Data Roles</span>
+                                        </div>
+                                    </a>
                                     @endcan
                                 </li>
                                 <li class="nav-item">
@@ -70,6 +70,83 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- parent pages-->
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link dropdown-indicator label-1" href="#nv-home" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="nv-home">
+                            <div class="d-flex align-items-center">
+                                <div class="dropdown-indicator-icon-wrapper">
+                                    <span class="fas fa-caret-right dropdown-indicator-icon"></span>
+                                </div>
+                                <span class="nav-link-icon"><span data-feather="users"></span></span>
+                                <span class="nav-link-text">Data Master</span>
+                                <!-- <span class="fa-solid fa-circle text-info ms-1 new-page-indicator"
+                                    style="font-size: 6px"></span> -->
+                            </div>
+                        </a>
+                        <div class="parent-wrapper label-1">
+                            <ul class="nav collapse parent {{ request()->routeIs('users.*') || request()->routeIs('roles.*') || request()->routeIs('pangkat.*') || request()->routeIs('atasans.*') ? 'show' : '' }}"
+                                data-bs-parent="#navbarVerticalCollapse" id="nv-home">
+                                <li class="collapsed-nav-item-title d-none">Home</li>
+                                <li class="nav-item">
+                                    @can('user-list')
+                                    <a class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}"
+                                        href="{{ route('users.index') }}">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Data Users</span>
+                                        </div>
+                                    </a>
+                                    @endcan
+                                </li>
+                                <li class="nav-item">
+                                    @can('role-list')
+                                    <a class="nav-link {{ request()->routeIs('roles.*') ? 'active' : '' }}"
+                                        href="{{ route('roles.index') }}">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Data Roles</span>
+                                        </div>
+                                    </a>
+                                    @endcan
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('pangkat.*') ? 'active' : '' }}" href="">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">SKP</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('atasans.*') ? 'active' : '' }}" href="">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Dialog Kerja</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('pangkat.*') ? 'active' : '' }}" href="">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Matriks Peran Hasil</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('atasans.*') ? 'active' : '' }}" href="">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Rencana Aksi</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('atasans.*') ? 'active' : '' }}" href="">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Kinerja Tambahan </span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </li>
             </ul>
         </div>
