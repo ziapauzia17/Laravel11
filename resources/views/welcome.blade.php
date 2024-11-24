@@ -97,24 +97,7 @@
                     </a>
                     <div class="d-flex align-items-center gap-2 gap-sm-3 gap-md-4 my-2 order-lg-1">
 
-                        @if (Route::has('login'))
-                            <ul class="navbar-nav">
-                                @auth
-                                    <li class="nav-item border-bottom border-translucent border-bottom-lg-0">
-                                        <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
-                                    </li>
-                                @else
-                                    <li class="nav-item border-bottom border-translucent border-bottom-lg-0">
-                                        <a href="{{ route('login') }}" class="nav-link">Log in</a>
-                                    </li>
-                                    @if (Route::has('register'))
-                                        <li class="nav-item border-bottom border-translucent border-bottom-lg-0">
-                                            <a href="{{ route('register') }}" class="nav-link">Register</a>
-                                        </li>
-                                    @endif
-                                @endauth
-                            </ul>
-                        @endif
+
 
                     </div>
                     <button class="navbar-toggler fs-8 ps-1 ps-sm-3 pe-0" type="button" data-bs-toggle="collapse"
