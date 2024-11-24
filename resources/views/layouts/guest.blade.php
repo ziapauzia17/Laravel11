@@ -60,6 +60,12 @@
         <link href="/assets/backend/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
         <link href="/assets/backend/css/user-rtl.min.css" type="text/css" rel="stylesheet" id="user-style-rtl">
         <link href="/assets/backend/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+        <!-- Font Awesome CSS (for icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Typed.js -->
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
         <script>
             var phoenixIsRTL = window.config.config.phoenixIsRTL;
             if (phoenixIsRTL) {
@@ -75,6 +81,8 @@
                 userLinkRTL.setAttribute('disabled', true);
             }
         </script>
+        <!-- Custom JS -->
+        <script src="{{ asset('js/app.js') }}"></script>
     </head>
 
 
