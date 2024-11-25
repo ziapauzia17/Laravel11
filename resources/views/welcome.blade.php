@@ -10,7 +10,7 @@
         <!-- ===============================================-->
         <!--    Document Title-->
         <!-- ===============================================-->
-        <title>Phoenix</title>
+        <title>@yield('title', 'home')</title>
 
         {{-- favicon rsud --}}
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/backend/img/favicons/apple-icon-57x57.png">
@@ -107,20 +107,44 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mt-3 mt-lg-0">
                             <li class="nav-item border-bottom border-translucent border-bottom-lg-0"><a
-                                    class="nav-link"
-                                    href="../../apps/travel-agency/hotel/customer/homepage.html">Hotel</a></li>
+                                    class="nav-link" href="#">Beranda</a></li>
                             <li class="nav-item border-bottom border-translucent border-bottom-lg-0"><a
-                                    class="nav-link" href="../../apps/travel-agency/flight/homepage.html">Flight</a>
-                            </li>
+                                    class="nav-link" href="#">Profil</a></li>
                             <li class="nav-item border-bottom border-translucent border-bottom-lg-0"><a
-                                    class="nav-link" href="../../apps/travel-agency/trip/homepage.html">Trip</a></li>
+                                    class="nav-link" href="#">Fasilitas</a></li>
                             <li class="nav-item border-bottom border-translucent border-bottom-lg-0"><a
-                                    class="nav-link" href="../../apps/events/event-detail.html">Event</a></li>
-                            <li class="nav-item border-bottom border-translucent border-bottom-lg-0"><a
-                                    class="nav-link" href="#!">Package</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#!">Trending</a></li>
+                                    class="nav-link" href="#">Antrian Online</a></li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            @if (Route::has('login'))
+                                @auth
+                                    <li class="nav-item border-bottom border-translucent border-bottom-lg-0">
+                                        <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
+                                    </li>
+                                    <li class="nav-item border-bottom border-translucent border-bottom-lg-0">
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a href="{{ route('logout') }}" class="nav-link"
+                                                onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                                Logout
+                                            </a>
+                                        </form>
+                                    </li>
+                                @else
+                                    <li class="nav-item border-bottom border-translucent border-bottom-lg-0">
+                                        <a href="{{ route('login') }}" class="nav-link">Log in</a>
+                                    </li>
+                                    @if (Route::has('register'))
+                                        <li class="nav-item border-bottom border-translucent border-bottom-lg-0">
+                                            <a href="{{ route('register') }}" class="nav-link">Register</a>
+                                        </li>
+                                    @endif
+                                @endauth
+                            @endif
                         </ul>
                     </div>
+
 
                 </nav>
             </div>
@@ -135,10 +159,10 @@
                 <!--/.bg-holder-->
 
                 <div class="container-medium position-relative z-5">
-                    <h2 class="text-secondary-lighter fs-5 fs-md-3 fw-normal mb-3">Where is your</h2>
-                    <h1 class="fs-4 fs-md-1 text-white fw-normal mb-6 overflow-hidden">NEXT <span
+                    <h2 class="text-secondary-lighter fs-5 fs-md-3 fw-normal mb-3">Pelayanan Di RSUD</h2>
+                    <h1 class="fs-4 fs-md-1 text-white fw-normal mb-6 overflow-hidden">KAWALI ? <span
                             class="typed-text text-primary"
-                            data-typed-text="[&quot;&lt;span class=text-primary&gt;TRIP!&lt;/span&gt;&quot;,&quot;&lt;span class=text-warning&gt;TOUR?&lt;/span&gt;&quot;, &quot;&lt;span class=text-info&gt;SOJOURN?&lt;/span&gt;&quot;, &quot;&lt;span class=text-success&gt;VACAY?&lt;/span&gt;&quot;]"></span>
+                            data-typed-text="[&quot;&lt;span class=text-primary&gt;RAWAT INAP&lt;/span&gt;&quot;,&quot;&lt;span class=text-warning&gt;IGD 24 JAM&lt;/span&gt;&quot;, &quot;&lt;span class=text-info&gt;KLINIK&lt;/span&gt;&quot;, &quot;&lt;span class=text-success&gt;HALO TB&lt;/span&gt;&quot;]"></span>
                     </h1>
                     <div class="input-group rounded-2 py-1 ps-2 w-lg-50 border border-light">
                         <div class="form-icon-container flex-1 d-flex align-items-center" data-fa-transform="down-1">
