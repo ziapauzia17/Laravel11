@@ -27,15 +27,15 @@
             <!-- Email Address -->
             <div class="mb-3 text-start"> <label class="form-label" for="email">Email address</label>
                 <div class="form-icon-container"> <input class="form-control form-icon-input typewriter" id="email"
-                        type="email" name="email" :value="old('email')" required autofocus
-                        placeholder="Enter your email" /> <span class="fas fa-user text-body fs-9 form-icon"></span> </div>
+                        type="email" name="email" :value="old('email')" required autofocus placeholder="" /> <span
+                        class="fas fa-user text-body fs-9 form-icon"></span> </div>
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
             <!-- Password -->
             <div class="mb-3 text-start"> <label class="form-label" for="password">Password</label>
                 <div class="form-icon-container" data-password="data-password"> <input
                         class="form-control form-icon-input pe-6 typewriter" id="password" type="password" name="password"
-                        required placeholder="Enter your password" data-password-input="data-password-input" /> <span
+                        required placeholder="" data-password-input="data-password-input" /> <span
                         class="fas fa-key text-body fs-9 form-icon"></span> <button type="button"
                         class="btn px-3 py-0 h-100 position-absolute top-0 end-0 fs-7 text-body-tertiary"
                         data-password-toggle="data-password-toggle"> <span class="uil uil-eye show"></span> <span
